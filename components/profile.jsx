@@ -17,7 +17,7 @@ var Home = React.createClass({
         //render content
         return (
             <div>
-
+                <h1>Profile</h1>
             </div>
         );
     }

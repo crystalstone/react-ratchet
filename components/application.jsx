@@ -72,8 +72,10 @@ var Application = React.createClass({
         return (
             <div className={classSet}>
                 <div>
-                    <TitleBar activeRoute={this.state.route}/>
-                     {output}
+                    <TitleBar activeRoute={this.state.route} backgroundColor="rgb(235, 140, 0)" color="#fff"/>
+                    <div className="content-padded title-bar tab-bar">
+                                  {output}
+                    </div>
                     <TabBar activeRoute={this.state.route}/>
                 </div>
             </div>

@@ -14,10 +14,14 @@ var TitleBar = React.createClass({
     },
     render: function() {
 
+        var titleBarStyle = {
+            backgroundColor: this.props.backgroundColor,
+            color: this.props.color
+        };
         //render content
         return (
-            <header className="bar bar-nav">
-                <TitleBarTitle text={this.props.activeRoute.config.label} />
+            <header className="bar bar-nav" style={titleBarStyle}>
+                <TitleBarTitle  text={this.props.activeRoute.config.label} />
             </header>
         );
     }

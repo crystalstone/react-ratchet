@@ -16,7 +16,7 @@ var Settings = React.createClass({
         //render content
         return (
             <div>
-
+                <h1>Settings</h1>
             </div>
         );
     }
