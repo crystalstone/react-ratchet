@@ -11,8 +11,6 @@ var koa = require('koa'),
     stateHelper = require("./state/stateHelper"),
     navigateAction = require('flux-router-component').navigateAction;
 
-var argv = require('minimist')(process.argv.slice(2));
-console.log(argv);
 //create our app
 var server = koa();
 

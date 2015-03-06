@@ -26,6 +26,9 @@ var Application = React.createClass({
     statics: {
         storeListeners: [ApplicationStore]
     },
+    componentDidMount: function() {
+        FastClick.attach(document.body);
+    },
     getInitialState: function() {
         return this.getStore(ApplicationStore).getState();
     },
@@ -67,14 +70,12 @@ var Application = React.createClass({
         var classes = {};
         var classSet = cx(classes);
 
-        console.log(this.state);
-
         return (
             <div className={classSet}>
                 <div>
                     <TitleBar activeRoute={this.state.route} backgroundColor="rgb(235, 140, 0)" color="#fff"/>
-                    <div className="content-padded title-bar tab-bar">
-                                  {output}
+                    <div className="content title-bar tab-bar">
+                        {output}
                     </div>
                     <TabBar activeRoute={this.state.route}/>
                 </div>

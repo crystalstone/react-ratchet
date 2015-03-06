@@ -1,13 +1,17 @@
-.content-padded.title-bar {
+.content.title-bar {
   position: fixed;
   overflow-y: auto;
   overflow-x: hidden;
+  left: 0;
+  right: 0;
+
+  background-color: #fff;
 }
 
-.content-padded.title-bar {
-  top: 44px;
-}
-
-.content-padded.tab-bar {
+.content.tab-bar {
   bottom: 50px;
+}
+
+.inner-content {
+  padding: 10px;
 }

@@ -16,7 +16,7 @@ var Home = React.createClass({
 
         //render content
         return (
-            <div>
+            <div className="inner-content">
                 <h1>Search</h1>
             </div>
         );

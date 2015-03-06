@@ -9,6 +9,7 @@ var gulp = require('gulp'),
 
 gulp.task('copy', function() {
 
+    gulp.src(['./assets/js/**/*']).pipe(gulp.dest('dist/js'));
     gulp.src(['./assets/images/**/*']).pipe(gulp.dest('dist/assets/images'));
     gulp.src(['./assets/fonts/**/*']).pipe(gulp.dest('dist/assets/fonts'));
 

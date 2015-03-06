@@ -6,21 +6,18 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var FluxibleMixin = require('fluxible').Mixin;
 
-var Home = React.createClass({
+var TableViewDivider = React.createClass({
     mixins: [RouterMixin, FluxibleMixin],
     getInitialState: function() {
         return {};
     },
     render: function() {
 
-
         //render content
         return (
-            <div className="inner-content">
-                <h1>Profile</h1>
-            </div>
+            <li className="table-view-divider">{this.props.text}</li>
         );
     }
 });
 
-module.exports = Home;
+module.exports = TableViewDivider;
