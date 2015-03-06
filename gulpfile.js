@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
     gwebpack = require('gulp-webpack'),
     nodemon = require('gulp-nodemon'),
-    less = require('gulp-less'),
     path = require('path'),
     LessPluginCleanCSS = require("less-plugin-clean-css"),
     webpack = require('webpack'),
@@ -24,16 +23,6 @@ gulp.task('theme-styles', function() {
     //change this to switch themes
     gulp.src('./assets/stylesheets/theme-ios.scss')
         .pipe(sass())
-        .pipe(gulp.dest('./dist/assets/stylesheets'));
-});
-
-gulp.task("less", function() {
-
-    return gulp.src('./assets/stylesheets/ratchet-theme-ios.less')
-        .pipe(less({
-            paths: [path.join(__dirname, 'less', 'includes')],
-            plugins: [cleancss]
-        }))
         .pipe(gulp.dest('./dist/assets/stylesheets'));
 });
 
@@ -69,5 +58,5 @@ gulp.task('pack', function() {
         .pipe(gulp.dest('dist/js/'));
 });
 
-gulp.task("default", ["main-styles","theme-styles", "copy", "pack", "nodemon"]);
-gulp.task("build", ["main-styles","theme-styles", "copy", "pack"]);
+gulp.task("default", ["main-styles", "theme-styles", "copy", "pack", "nodemon"]);
+gulp.task("build", ["main-styles", "theme-styles", "copy", "pack"]);
