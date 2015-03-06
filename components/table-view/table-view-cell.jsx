@@ -24,7 +24,7 @@ var TableViewCell = React.createClass({
         //render content
         return (
             <li className="table-view-cell">
-                <a className={cx(classes)}>{badge} {this.props.text}</a>
+                <a className={cx(classes)}>{this.props.text}</a>
             </li>
         );
     }

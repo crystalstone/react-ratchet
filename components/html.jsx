@@ -13,8 +13,8 @@ var Application = React.createClass({
                     <title>{this.props.title}</title>
                     <link rel="shortcut icon" href="/dist/assets/images/favicon.ico" type="image/x-icon"></link>
                     <link rel="icon" href="/dist/assets/images/favicon.ico" type="image/x-icon"></link>
-                    <link rel="stylesheet" href="/dist/assets/stylesheets/ratchet.css" />
-                    <link rel="stylesheet" href="/dist/assets/stylesheets/theme-ios.css" />
+                    <link rel="stylesheet" href="/dist/assets/stylesheets/ratchet.css"> </link>
+                    <link rel="stylesheet" href="/dist/assets/stylesheets/theme-ios.css"> </link>
                     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/dist/assets/images/apple-touch-icon-57x57.png"></link>
                     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/dist/assets/images/apple-touch-icon-114x114.png"></link>
                     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/dist/assets/images/apple-touch-icon-72x72.png"></link>
