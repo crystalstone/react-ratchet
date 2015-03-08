@@ -8,9 +8,6 @@ var FluxibleMixin = require('fluxible').Mixin;
 var ApplicationStore = require('../stores/application_store');
 var RouterMixin = require('flux-router-component').RouterMixin;
 
-//actions
-var navigateAction = require('flux-router-component').navigateAction;
-
 //components
 var Page = require('./page'),
     Home = require('./home'),
@@ -64,7 +61,7 @@ var Application = React.createClass({
         return (
             <div className={classSet}>
                 <div>
-                    <TitleBar activeRoute={this.state.route} backgroundColor="rgb(235, 140, 0)" color="#fff"/>
+                    <TitleBar goBack={this.state.currentParentPage ? this.state.pages[this.state.currentParentPage].path : null} activeRoute={this.state.route} backgroundColor="rgb(235, 140, 0)" color="#fff"/>
                     <div className="content title-bar tab-bar">
                         {output}
                     </div>

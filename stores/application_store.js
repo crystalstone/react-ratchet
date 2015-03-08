@@ -32,6 +32,8 @@ var ApplicationStore = createStore({
         //set the parent
         if ( route.config.parent ) {
             this.currentParentPage = route.config.parent;
+        } else {
+            this.currentParentPage = null;
         }
 
         this.emitChange();

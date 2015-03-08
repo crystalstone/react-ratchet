@@ -15,14 +15,16 @@ var TitleBarButton = React.createClass({
         var cx = React.addons.classSet;
         var classes = {
             'btn': true,
+            'btn-nav': true,
+            'btn-link': true,
             'pull-left': this.props.position === 'left',
             'pull-right': this.props.position === 'right'
         };
-        var classSet = cx(classes);
 
         //render content
         return (
-            <button className={classSet}>
+            <button className={cx(classes)} onClick={this.props.action}>
+                <span className="icon icon-left-nav"></span>
                  {this.props.text}
             </button>
         );

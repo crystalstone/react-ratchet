@@ -3,12 +3,17 @@ var React = require('react');
 var NavLink = require('flux-router-component').NavLink;
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var FluxibleMixin = require('fluxible').Mixin;
+var AnimateMixin = require('react-animate');
+
 var TableView = require("./../table-view/table-view");
 var Bluetooth = require('./settings_bluetooth');
 var Settings = React.createClass({
-    mixins: [FluxibleMixin],
+    mixins: [FluxibleMixin, AnimateMixin],
     getInitialState: function() {
         return {};
+    },
+    componentWillReceiveProps:function(){
+
     },
     render: function() {
 
