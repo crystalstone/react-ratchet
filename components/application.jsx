@@ -17,7 +17,7 @@ var Page = require('./page'),
     Favorites = require('./favorites'),
     Profile = require('./profile'),
     Search = require('./search'),
-    Settings = require('./settings'),
+    Settings = require('./settings/settings'),
     TabBar = require('./tab-bar/tab-bar'),
     TitleBar = require('./title-bar/title-bar');
 
@@ -35,35 +35,26 @@ var Application = React.createClass({
     onChange: function() {
         this.setState(this.getInitialState());
     },
+    matchRoute: function( name ) {
+        return this.state.currentPageName === name || this.state.currentParentPage && this.state.currentParentPage.indexOf(name) === 0;
+    },
     render: function() {
-
         var output = '';
-        //choose the right page based on the route
-        switch ( this.state.currentPageName ) {
-            case 'home':
-                debug("RENDERING " + this.state.currentPageName);
-                output = <Home currentPage={this.state.currentPageName}/>;
-                break;
-            case 'favorites':
-                debug("RENDERING " + this.state.currentPageName);
-                output = <Favorites currentPage={this.state.currentPageName}/>;
-                break;
-            case 'settings':
-                debug("RENDERING " + this.state.currentPageName);
-                output = <Settings currentPage={this.state.currentPageName}/>;
-                break;
-            case 'profile':
-                debug("RENDERING " + this.state.currentPageName);
-                output = <Profile currentPage={this.state.currentPageName}/>;
-                break;
-            case 'search':
-                debug("RENDERING " + this.state.currentPageName);
-                output = <Search currentPage={this.state.currentPageName}/>;
-                break;
-            case 'page':
-                debug("RENDERING page");
-                output = <Page/>;
-                break;
+
+        if ( this.matchRoute('home') ) {
+            output = <Home  currentRoute={this.state.route}/>;
+        }
+        if ( this.matchRoute('favorites') ) {
+            output = <Favorites currentRoute={this.state.route}/>;
+        }
+        if ( this.matchRoute('settings') ) {
+            output = <Settings currentRoute={this.state.route}/>;
+        }
+        if ( this.matchRoute('profile') ) {
+            output = <Profile currentRoute={this.state.route}/>;
+        }
+        if ( this.matchRoute('search') ) {
+            output = <Search currentRoute={this.state.route}/>;
         }
 
         var cx = React.addons.classSet;

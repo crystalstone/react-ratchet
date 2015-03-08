@@ -13,6 +13,13 @@ module.exports = {
         page: 'settings',
         label: 'Settings'
     },
+    settings_bluetooth: {
+        path: '/settings/bluetooth',
+        method: 'get',
+        page: 'settings_bluetooth',
+        label: 'Bluetooth Settings',
+        parent: "settings"
+    },
     favorites: {
         path: '/favorites',
         method: 'get',

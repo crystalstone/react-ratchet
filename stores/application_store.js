@@ -13,18 +13,27 @@ var ApplicationStore = createStore({
         this.currentPage = null;
         this.currentRoute = null;
         this.pages = routesConfig;
+        this.currentParentPage = null;
     },
 
     handleNavigate: function( route ) {
         var pageName = route.config.page;
         var page = this.pages[pageName];
+
         this.lastPageName = this.currentPageName;
         if ( pageName === this.getCurrentPageName() ) {
             return;
         }
+
         this.currentPageName = pageName;
         this.currentPage = page;
         this.currentRoute = route;
+
+        //set the parent
+        if ( route.config.parent ) {
+            this.currentParentPage = route.config.parent;
+        }
+
         this.emitChange();
     },
     getCurrentPageName: function() {
@@ -36,7 +45,8 @@ var ApplicationStore = createStore({
             currentPage: this.currentPage,
             pages: this.pages,
             route: this.currentRoute,
-            lastPageName: this.lastPageName
+            lastPageName: this.lastPageName,
+            currentParentPage: this.currentParentPage
         };
     },
     dehydrate: function() {
@@ -48,7 +58,7 @@ var ApplicationStore = createStore({
         this.pages = state.pages;
         this.currentRoute = state.route;
         this.lastPageName = state.lastPageName;
-
+        this.currentParentPage = state.currentParentPage;
     }
 });
 

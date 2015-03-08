@@ -2,9 +2,7 @@ var gulp = require('gulp'),
     gwebpack = require('gulp-webpack'),
     nodemon = require('gulp-nodemon'),
     path = require('path'),
-    LessPluginCleanCSS = require("less-plugin-clean-css"),
     webpack = require('webpack'),
-    cleancss = new LessPluginCleanCSS({advanced: true}),
     sass = require('gulp-sass');
 
 gulp.task('copy', function() {
@@ -32,8 +30,9 @@ gulp.task('nodemon', function() {
         script: 'server.js',
         ext: 'js jsx css less',
         nodeArgs: ['--harmony'],
+        ignore: ['./dist/**'],
         env: {'DEBUG': '*'}
-    }).on('restart');
+    }).on('change',['build']);
 });
 
 gulp.task('pack', function() {
@@ -52,9 +51,7 @@ gulp.task('pack', function() {
                     {test: /\.jsx$/, loader: 'jsx-loader?harmony'}
                 ]
             },
-            plugins: [
-                new webpack.IgnorePlugin(new RegExp("models"))
-            ]
+            plugins: []
         }))
         .pipe(gulp.dest('dist/js/'));
 });

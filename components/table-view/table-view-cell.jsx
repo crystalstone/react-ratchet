@@ -1,13 +1,12 @@
 'use strict';
 var React = require('react');
-var RouterMixin = require('flux-router-component').RouterMixin;
 var NavLink = require('flux-router-component').NavLink;
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var cx = React.addons.classSet;
 var FluxibleMixin = require('fluxible').Mixin;
 
 var TableViewCell = React.createClass({
-    mixins: [RouterMixin, FluxibleMixin],
+    mixins: [FluxibleMixin],
     getInitialState: function() {
         return {};
     },
@@ -24,7 +23,7 @@ var TableViewCell = React.createClass({
         //render content
         return (
             <li className="table-view-cell">
-                <a className={cx(classes)}>{this.props.text}</a>
+                <NavLink className={cx(classes)} routeName={this.props.routeName}>{this.props.text}</NavLink>
             </li>
         );
     }

@@ -1,13 +1,12 @@
 'use strict';
 var React = require('react');
-var RouterMixin = require('flux-router-component').RouterMixin;
 var NavLink = require('flux-router-component').NavLink;
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var FluxibleMixin = require('fluxible').Mixin;
 
 var Tab = React.createClass({
-    mixins: [RouterMixin, FluxibleMixin],
+    mixins: [FluxibleMixin],
     getInitialState: function() {
         return {};
     },
@@ -16,12 +15,13 @@ var Tab = React.createClass({
         var cx = React.addons.classSet;
         var iconClasses = {
             'icon': true
+
         };
         iconClasses[this.props.iconClass] = true;
 
         var tabClasses = {
             'tab-item': true,
-            'active':this.props.active
+            'active': this.props.activeRoute.config.page.indexOf(this.props.routeName) === 0
         };
 
         //render content
