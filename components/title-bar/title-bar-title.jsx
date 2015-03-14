@@ -14,7 +14,7 @@ var TitleBarTitle = React.createClass({
 
         //render content
         return (
-            <h1 className="title">{this.props.text}</h1>
+            <h1 className="title" style={this.props.style}>{this.props.text}</h1>
         );
     }
 });
