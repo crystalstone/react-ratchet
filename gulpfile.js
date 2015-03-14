@@ -3,7 +3,9 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     path = require('path'),
     webpack = require('webpack'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    util = require('gulp-util');
+
 
 gulp.task('copy', function() {
 
@@ -18,9 +20,10 @@ gulp.task('main-styles', function() {
         .pipe(sass())
         .pipe(gulp.dest('./dist/assets/stylesheets'));
 });
+
 gulp.task('theme-styles', function() {
     //change this to switch themes
-    gulp.src('./assets/stylesheets/theme-ios.scss')
+    gulp.src('./assets/stylesheets/theme-'+ (util.env.theme? util.env.theme : 'ios') + '.scss')
         .pipe(sass())
         .pipe(gulp.dest('./dist/assets/stylesheets'));
 });
